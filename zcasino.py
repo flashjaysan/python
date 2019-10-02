@@ -47,8 +47,7 @@ def gamble(player_money):
 
 
 def get_player_bet(player_money):
-    input_ok = False
-    while not input_ok:
+    while True:
         bet_text = input("Combien voulez-vous miser ? ")
 
         try:
@@ -62,14 +61,11 @@ def get_player_bet(player_money):
                 print("Vous ne pouvez miser que l'argent que vous possédez.")
             else:
                 print("Vous misez", bet, "$.")
-                input_ok = True
-
-    return bet
+                return bet
 
 
 def get_player_number():
-    input_ok = False
-    while not input_ok:
+    while True:
         number_text = input("Sur quel numéro voulez-vous miser ? (0 à 49) ")
 
         try:
@@ -83,22 +79,19 @@ def get_player_number():
                 print("Vous ne pouvez pas miser sur un nombre supérieur à 49.")
             else:
                 print("Vous misez sur le numéro", number, ".")
-                input_ok = True
-
-    return number
+                return number
 
 
 def want_to_play_question(player_money):
     print("Vous avez", player_money, "$ en poche.")
-    answer_ok = False
-    while not answer_ok:
+    while True:
         answer = input("Voulez-vous jouer ? (oui/non) ")
         if answer == "oui":
             return True
         elif answer == "non":
             return False
         else:
-            print("Votre réponse", answer, """n'est pas correcte. Saisissez "oui" ou "non".""")
+            print("Votre réponse \"", answer, "\" n'est pas correcte. Saisissez \"oui\" ou \"non\".")
 
 
 def roll():
