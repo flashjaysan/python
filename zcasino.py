@@ -35,10 +35,10 @@ def gamble(player_money):
 
     if player_number == bank_number:
         print("Vous avez trouvé le bon numéro ! Vous avez gagné trois fois votre mise !")
-        gain = get_full_prize(player_money)
+        gain = get_full_prize(bet)
     elif player_number % 2 == bank_number % 2:
-        print("Votre numéro a la même parité que celui de la banque. Vous gagnez la moitié de votre mise.")
-        gain = get_half_prize(player_money)
+        print("Votre numéro a la même couleur que celui de la banque. Vous gagnez la moitié de votre mise.")
+        gain = get_half_prize(bet)
     else:
         print("Vous avez perdu votre mise.")
         gain = -bet
@@ -56,8 +56,8 @@ def get_player_bet(player_money):
         except:
             print("Vous devez saisir un nombre.")
         else:
-            if bet < 0:
-                print("Vous ne pouvez pas miser un montant négatif.")
+            if bet <= 0:
+                print("Vous ne pouvez pas miser un montant négatif ou nul.")
             elif bet > player_money:
                 print("Vous ne pouvez miser que l'argent que vous possédez.")
             else:
@@ -70,7 +70,7 @@ def get_player_bet(player_money):
 def get_player_number():
     input_ok = False
     while not input_ok:
-        number_text = input("Sur quel nombre voulez-vous miser ? ")
+        number_text = input("Sur quel numéro voulez-vous miser ? ")
 
         try:
             number = int(number_text)
