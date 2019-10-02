@@ -70,7 +70,7 @@ def get_player_bet(player_money):
 def get_player_number():
     input_ok = False
     while not input_ok:
-        number_text = input("Sur quel numéro voulez-vous miser ? ")
+        number_text = input("Sur quel numéro voulez-vous miser ? (0 à 49) ")
 
         try:
             number = int(number_text)
